@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import User from "../models/userModel.js";
+import User from "../models/userModels.js";
 import { generateToken } from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
@@ -21,7 +21,7 @@ export const signup = async (req, res) => {
       email,
       firstName,
       lastName,
-     hashpassword,
+      hashPassword,
     });
     
     const newUserCreated = await newUser.save();
@@ -39,7 +39,6 @@ export const signup = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
-
 
 
 export const signin = async (req, res) => {
